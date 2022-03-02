@@ -16,4 +16,10 @@ class Player {
     takeTurn() {
         
     }
+
+    win() {
+        this.wins++;
+    }
+
+
 }
