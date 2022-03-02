@@ -7,3 +7,7 @@ function createGame() {
     return new Game(player1, player2);
 }
 
+function setGameType(type) {
+    game.type = type;
+    console.log(`game type: ${game.type}`)
+}
