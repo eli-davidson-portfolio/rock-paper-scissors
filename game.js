@@ -3,9 +3,9 @@ class Game {
         this.player1 = player1;
         this.player2 = player2;
         this.type = '';
-        this.board = [];
         this.classic = ['Rock', 'Paper', 'Scissors'];
         this.advanced = ['Rock','Spock', 'Paper', 'Lizard', 'Scissors'];
+        this.board = [];
     }
     checkWinCondition() {
         //A way to check the Game’s board data for win conditions
@@ -13,6 +13,6 @@ class Game {
     }
 
     resetBoard() {
-        this.board = [];
+        this.board = this[this.type] || []
     }
 }
