@@ -14,15 +14,13 @@ class Player {
         // only necessary if you choose the localStorage extension
     }
 
-    takeTurn(fighterID) {
-        this.move = fighterID || this.randomMove();
-    }
-
-    randomMove(availableMoves) {
-        return availableMoves[Math.floor(Math.random() * availableMoves.length)];
+    takeTurn(move) {
+        this.move = move || game.board[Math.floor(Math.random() * game.board.length)];
+        console.log(`${this.name} selects ${this.move}`)
     }
 
     win() {
+        console.log(`${this.name} wins!`)
         this.wins++;
     }
 
