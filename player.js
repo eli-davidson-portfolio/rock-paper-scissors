@@ -4,6 +4,7 @@ class Player {
         this.token = token;
         this.wins = wins || 0;
         this.move = '';
+        this.moveIndex;
     }
 
     saveWinsToStorage () {
@@ -20,8 +21,8 @@ class Player {
     }
 
     win() {
-        console.log(`${this.name} wins!`)
         this.wins++;
+        return `${this.name} wins`;
     }
 
 }

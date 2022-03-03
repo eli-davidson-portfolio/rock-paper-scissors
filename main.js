@@ -1,5 +1,6 @@
 var game = new Game();
-render();
+game.reset();
+
 
 function render() {
     console.log(`${game.player1.name}: ${game.player1.wins}`);
