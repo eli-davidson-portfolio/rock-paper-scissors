@@ -5,7 +5,6 @@ class Game {
         this.type = '';
         this.classic = ['Rock', 'Paper', 'Scissors'];
         this.advanced = ['Rock','Spock', 'Paper', 'Lizard', 'Scissors'];
-        resetBoard();
     }
 
     setGameType(type) {
@@ -30,7 +29,7 @@ class Game {
     }
 
     resetBoard() {
-        this.board = this[this.type] || []
+        this.board = Array.from(this[this.type]) || []
         render()
     }
 }
