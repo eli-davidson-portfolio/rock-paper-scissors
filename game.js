@@ -1,12 +1,18 @@
 class Game {
-    constructor (player1, player2) {
-        this.player1 = player1;
-        this.player2 = player2;
+    constructor () {
+        this.player1 = new Player('human', 'token', 0);
+        this.player2 = new Player('computer', 'token', 0);
         this.type = '';
         this.classic = ['Rock', 'Paper', 'Scissors'];
         this.advanced = ['Rock','Spock', 'Paper', 'Lizard', 'Scissors'];
-        this.board = [];
+        resetBoard();
     }
+
+    setGameType(type) {
+        this.type = type;
+        this.resetBoard();
+    }
+
     checkWinCondition(move) {
         this.player1.takeTurn(move);
         this.player2.takeTurn();
