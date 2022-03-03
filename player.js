@@ -3,6 +3,8 @@ class Player {
         this.name = name;
         this.token = token;
         this.wins = wins || 0;
+        this.move = '';
+        this.moveIndex;
     }
 
     saveWinsToStorage () {
@@ -13,7 +15,14 @@ class Player {
         // only necessary if you choose the localStorage extension
     }
 
-    takeTurn() {
-        
+    takeTurn(move) {
+        this.move = move || game.board[Math.floor(Math.random() * game.board.length)];
+        console.log(`${this.name} selects ${this.move}`)
     }
+
+    win() {
+        this.wins++;
+        return `${this.name} wins`;
+    }
+
 }
