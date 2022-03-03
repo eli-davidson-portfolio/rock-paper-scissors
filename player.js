@@ -3,6 +3,7 @@ class Player {
         this.name = name;
         this.token = token;
         this.wins = wins || 0;
+        this.move = '';
     }
 
     saveWinsToStorage () {
@@ -13,8 +14,8 @@ class Player {
         // only necessary if you choose the localStorage extension
     }
 
-    takeTurn() {
-        
+    takeTurn(fighterID) {
+        this.move = fighterID || this.randomMove();
     }
 
     win() {
