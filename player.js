@@ -24,7 +24,4 @@ class Player {
         this.wins++;
     }
 
-    get(property) {
-        return this[property];
-    }
 }
