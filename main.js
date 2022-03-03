@@ -1,5 +1,6 @@
 
 var game = createGame();
+var moves = ['Spock', 'Paper', 'Lizard', 'Scissors', 'Rock'];
 
 function createGame() {
     var player1 = new Player('human', 'token', 0);
@@ -8,7 +9,7 @@ function createGame() {
     render(`${player1.get('name')}: ${player1.get('wins')}`);
     render(`VS`);
     render(`${player2.get('name')}: ${player2.get('wins')}`);
-    render(`Select Game Type:`);
+    render(`Select Game Type: Normal`);
     return new Game(player1, player2);
 }
 
@@ -19,4 +20,14 @@ function setGameType(type) {
 
 function render(message) {
     console.log(message);
+}
+
+function left() {
+    moves.push(moves.shift());
+    render(moves);
+}
+
+function right() {
+    moves.unshift(moves.pop());
+    render(moves);
 }
