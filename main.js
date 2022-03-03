@@ -1,6 +1,6 @@
 
 var game = createGame();
-var moves = ['Spock', 'Paper', 'Lizard', 'Scissors', 'Rock'];
+
 
 function createGame() {
     var player1 = new Player('human', 'token', 0);
