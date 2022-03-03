@@ -18,6 +18,10 @@ class Player {
         this.move = fighterID || this.randomMove();
     }
 
+    randomMove(availableMoves) {
+        return availableMoves[Math.floor(Math.random() * availableMoves.length)];
+    }
+
     win() {
         this.wins++;
     }
