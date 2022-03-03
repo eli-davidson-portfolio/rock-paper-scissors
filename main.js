@@ -1,4 +1,5 @@
 var game = new Game();
+render();
 
 function render() {
     console.log(`${game.player1.get('name')}: ${game.player1.get('wins')}`);
