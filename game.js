@@ -8,9 +8,20 @@ class Game {
         this.board = [];
     }
     checkWinCondition() {
-        //A way to check the Game’s board data for win conditions
-        //A way to detect when a game is a draw (no one has won)
+        this.player2.takeTurn();
+        for (; this.board.indexOf(this.player1.move) === Math.ceil(this.board.length / 2);) {
+            this.board.unshift(this.board.pop());
+        }
+        if (this.board.indexOf(this.player1.move) > this.board.indexOf(this.player2.move)) {
+            this.player1.win();
+        } else if (this.board.indexOf(this.player1.move) < this.board.indexOf(this.player2.move)) {
+            this.player2.win();
+        } else {
+            console.log("it's a tie")
+        } 
+        render();
     }
+
 
     resetBoard() {
         this.board = this[this.type] || []
