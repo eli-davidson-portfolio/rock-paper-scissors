@@ -7,9 +7,10 @@ class Game {
         this.advanced = ['Rock','Spock', 'Paper', 'Lizard', 'Scissors'];
         this.board = [];
     }
-    checkWinCondition() {
+    checkWinCondition(move) {
+        this.player1.takeTurn(move);
         this.player2.takeTurn();
-        for (; this.board.indexOf(this.player1.move) === Math.ceil(this.board.length / 2);) {
+        for (; this.board.indexOf(this.player1.move) != Math.floor(this.board.length / 2);) {
             this.board.unshift(this.board.pop());
         }
         if (this.board.indexOf(this.player1.move) > this.board.indexOf(this.player2.move)) {
@@ -19,11 +20,11 @@ class Game {
         } else {
             console.log("it's a tie")
         } 
-        render();
+        this.resetBoard()
     }
-
 
     resetBoard() {
         this.board = this[this.type] || []
+        render()
     }
 }
