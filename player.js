@@ -1,22 +1,44 @@
 class Player {
-    constructor (name, token, wins) {
-        this.name = name;
-        this.token = token;
-        this.wins = wins || 0;
+    constructor (human) {
+        this.name = '';
+        this.token = {};
+        this.wins = 0;
         this.move = '';
         this.moveIndex;
+        this.setDefaultToken(human);
     }
 
-    saveWinsToStorage () {
-        // only necessary if you choose the localStorage extension
+    setDefaultToken(human) {
+        this.token.avatar = {};
+        console.log(data.avatar.human.skinTone[3].value)
+        if (human) {
+            this.token.avatar.name = data.avatar.human.gender.nb.adult.name;
+            this.token.avatar.value = data.avatar.human.gender.nb.adult.value;
+            this.token.avatar.skinTone = data.avatar.human.skinTone[3].value;
+            this.token.fighter = data.fighters.human;
+        } else {
+            var creatureIndex = this.getRandomIndex(data.avatar.creature)
+            this.token.avatar.name = data.avatar.creature[creatureIndex].name;
+            this.token.avatar.value = data.avatar.creature[creatureIndex].value;
+            this.token.fighter = data.fighters.creature;  
+        }   this.name = this.token.avatar.name;
     }
 
-    retrieveWinsFromStorage() {
-        // only necessary if you choose the localStorage extension
+    setName(name) {
+        this.name = name;
+        render();
+    }
+
+    getRandomIndex(array) {
+        return Math.floor(Math.random() * array.length);
+    }
+
+    getRandomValue(array) {
+        return array[Math.floor(Math.random() * array.length)];
     }
 
     takeTurn(move) {
-        this.move = move || game.board[Math.floor(Math.random() * game.board.length)];
+        this.move = move || this.getRandomValue(game.board)
         console.log(`${this.name} selects ${this.move}`)
     }
 
@@ -25,4 +47,11 @@ class Player {
         return `${this.name} wins`;
     }
 
+    saveWinsToStorage() {
+        // only necessary if you choose the localStorage extension
+    }
+
+    retrieveWinsFromStorage() {
+        // only necessary if you choose the localStorage extension
+    }
 }
