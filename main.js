@@ -1,10 +1,17 @@
-var game = new Game();
-game.reset();
 
+function newGame() {
+    game = new Game();
+    game.reset();
+}
 
 function render() {
-    console.log(`${game.player1.name}: ${game.player1.wins}`);
-    console.log(`${game.player2.name}: ${game.player2.wins}`);
-    console.log(`Game Type: ${game.type}`);
-    console.log(`Available Moves: ${game.board}`);
+    document.getElementById('player1-name').innerText = game.player1.name;
+    document.getElementById('player1-avatar').innerHTML = `${game.player1.token.avatar.value}`;
+    document.getElementById('player2-name').innerText = game.player2.name;
+    document.getElementById('player2-avatar').innerHTML = game.player2.token.avatar.value;
 }
+
+var game;
+newGame();
+game.setType('advanced');
+game.setBoard();
