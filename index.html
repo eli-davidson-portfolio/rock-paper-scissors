@@ -9,6 +9,41 @@
     <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
+    <header></header>
+    <main>
+<section class="top">
+    <section class="hud hud-human">
+        <button class="button fighter-button token-button" id="player1-avatar"></button>
+        <button class="button button-view-credits" id="player1-name"></button>
+    </section>
+    <section class="fighter-container" id="game-board">
+        <button class="button fighter-button fighter-rock" name="Rock">&#127995;</button>
+        <button class="button fighter-button fighter-paper" name="Paper">📝</button>
+        <button class="button fighter-button fighter-scissors" name="Scissors">✂️</button>
+        <button class="button fighter-button fighter-lizard" name="Lizard">🦎</button>
+        <button class="button fighter-button fighter-spock" name="Spock">🖖🏻</button>
+    </section>
+    <section class="button-container hud">
+        <button class="button button-change-gmae" onClick="game.setType()">Change Game</button>
+        <button class="button button-view-credits">View Credits</button>
+    </section>
+</section>
+        <section class="middle">MIDDLE</section>
+                <section class="bottom">
+                    <label class="title hud">Rock, Paper Scissors</label>
+                    <section class="scoreboard">
+                        <section class="scoreboard__score scoreboard__score-human">00</section>
+                        <section class="scoreboard__score scoreboard__score-human">00</section>
+                    </section>
+                    <section class="hud hud-computer">
+                        <button class="button fighter-button token-button player2-avatar" id="player2-avatar"></button>
+                        <button class="button button-view-credits player2-name" id="player2-name"></button>
+                    </section>
+                </section>
+     
+    </main>
+    <Footer></Footer>
+    <script type="text/javascript" src="./data.js"></script>
     <script type="text/javascript" src="./player.js"></script>
     <script type="text/javascript" src="./game.js"></script>
     <script type="text/javascript" src="./main.js"></script>
