@@ -1,13 +1,16 @@
 class Game {
     constructor () {
-        this.player1 = new Player('human', 'token', 0);
-        this.player2 = new Player('computer', 'token', 0);
-        this.classic = ['Rock', 'Paper', 'Scissors'];
-        this.advanced = ['Rock','Spock', 'Paper', 'Lizard', 'Scissors'];
+        this.player1 = new Player('human');
+        this.player2 = new Player();
+
     }
 
-    setGameType(type) {
-        this.type = type || '';
+    setType() {
+        if (this.type === 'classic') {
+            this.type = 'advanced'
+        } else {
+            this.type = 'classic'
+        }
         this.reset();
     }
 
@@ -38,10 +41,24 @@ class Game {
         return this.board.indexOf(this[player].move)
     }
 
+    setBoard () {
+        var boardHTML = '';
+        console.log(this.board)
+        for (var i = 0; i < this.board.length; i++) {
+            var key = this.board[i].toLowerCase();
+            var name = this.player1.token.fighter[key].name;
+            var emoji = this.player1.token.fighter[key].value;
+            
+            boardHTML += `<button class="button fighter-button fighter-${key}" name="${name}" onClick="game.play('${name}')">${emoji})</button>`
+        }
+       document.getElementById('game-board').innerHTML = boardHTML;
+    }
+
     reset() {
         this.board = [];
         if (this.type) {
-            this.board = Array.from(this[this.type]);
+            this.board = Array.from(data.gameType[this.type]);
+            this.setBoard();
         }
         render()
         this.winner = `It's a tie...`
