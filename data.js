@@ -2,7 +2,7 @@
 var data = {
     gameType: {
     classic: ['Rock', 'Paper', 'Scissors'],
-    advanced: ['Rock', 'Spock', 'Paper', 'Lizard', 'Scissors']
+    advanced: ['Rock', 'Spock', 'Paper', 'Lizard', 'cissors']
     },
     fighters: {
         human: {
