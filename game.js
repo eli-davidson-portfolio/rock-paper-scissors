@@ -192,7 +192,6 @@ class Game {
     }
 
     setTheme(i) {
-        console.log(i)
         this.theme = {
             name: data.theme.options[i].name,
             light: data.theme.options[i].light,
@@ -240,7 +239,6 @@ class Game {
         this.setType(this.type);
         this.board.show(this.navBar.HTML, this.player1.HTML, this.player2.HTML, this.menu.HTML, this.prompt)
         this.HTML = '';
-        // this.HTML += this.navBar.HTML;
         this.HTML += this.board.HTML;
         return this.HTML;
 

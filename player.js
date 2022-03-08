@@ -160,11 +160,3 @@ class Player {
         return `${this.name} wins`;
     }
 
-    saveWinsToStorage() {
-        // only necessary if you choose the localStorage extension
-    }
-
-    retrieveWinsFromStorage() {
-        // only necessary if you choose the localStorage extension
-    }
-}
