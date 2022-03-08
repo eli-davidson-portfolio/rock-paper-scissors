@@ -160,3 +160,4 @@ class Player {
         return `${this.name} wins`;
     }
 
+}
