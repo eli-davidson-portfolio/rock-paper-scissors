@@ -14,7 +14,7 @@ function displayResults() {
     for (let i = 0; i < game.result.length; i++) {
         setTimeout(() => {prompt.innerHTML = game.result[i];}, i * 3000);
     }
-    setTimeout(game.menu.hide, 12000);
+    setTimeout(game.menu.hide, 15000);
 }
 
 

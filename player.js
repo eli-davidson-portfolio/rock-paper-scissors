@@ -60,7 +60,7 @@ class Player {
     show() {
         this.hud.update(this.token, this.name, this.wins);
         this.HTML= `
-        <section class="container frosted container--player${this.playerNumber}" style="background-color: ${this.theme.light}">
+        <section class="container container--player${this.playerNumber}" style="background-color: ${this.theme.light}">
             ${this.fightersHTML}
             ${this.hud.HTML}
         </section>`
@@ -77,6 +77,7 @@ class Player {
             this.token = this.avatar + this.skinTone;
         } else {
             this.theme.light = '#696868;'
+            this.theme.dark = '#696868;'
             var creatureIndex = this.getRandomIndex(data.token[this.species])
             this.name = data.token[this.species][creatureIndex].name;
             this.token = data.token[this.species][creatureIndex].value;
@@ -153,6 +154,9 @@ class Player {
     win() {
         this.wins++;
         this.show();
+        if (this.species === 'human') {
+            return `You win, ${this.name}`;  
+        }
         return `${this.name} wins`;
     }
 
