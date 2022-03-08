@@ -1,10 +1,22 @@
-var game = new Game();
-game.reset();
 
+
+function newGame() {
+    game = new Game();
+    game.reset();
+}
 
 function render() {
-    console.log(`${game.player1.name}: ${game.player1.wins}`);
-    console.log(`${game.player2.name}: ${game.player2.wins}`);
-    console.log(`Game Type: ${game.type}`);
-    console.log(`Available Moves: ${game.board}`);
+    document.querySelector('.main').innerHTML = game.show();
 }
+
+function displayResults() {
+    var prompt = document.querySelector('.prompt');
+    for (let i = 0; i < game.result.length; i++) {
+        setTimeout(() => {prompt.innerHTML = game.result[i];}, i * 3000);
+    }
+    setTimeout(game.menu.hide, 12000);
+}
+
+
+var game = new Game();
+game.menu.show('menu');
