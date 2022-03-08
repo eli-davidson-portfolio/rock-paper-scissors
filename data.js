@@ -10,7 +10,7 @@ var data = {
                 onClick: `game.menu.show('gameType')`
             },
             {
-                name: 'Charactor',
+                name: 'Character',
                 value: '&#129489;',
                 onClick: `game.menu.show('charactor')`
             },
@@ -23,7 +23,7 @@ var data = {
         ],
     },
     charactor: {
-        title: 'Charactor',
+        title: 'Character',
         prompt: "",
         options: [
             {
