@@ -1,24 +1,46 @@
-* {
+ /* * {
     border: solid yellow 2px;
-}
+}  */
 
 body {
-    background-color: black;
+    font-family: 'Comic Neue', cursive;
+    background-color: whit;
     color: white;
-    border: solid rgb(25, 0, 255) 2px;
-    margin: 0;
+    /* border: solid rgb(25, 0, 255) 2px; */
     height: 100vh;
     width: 100vw;
     overflow: hidden;
+    margin: 0;
 
 }
 
-main {
+h1 {
+  font-size: 30px;
+}
+
+.main {
     height: 100%;
     width: 100%;
-    border: solid red 2px;
+    /* border: solid red 2px; */
     display: flex;
     flex-direction: column;
+    /* background-color: #5d1049; */
+}
+
+.nav {
+    display: flex;
+    width: 99%;
+    padding-left: 30px;
+    padding-right: 30px;
+    justify-content: space-between;
+    align-items: center;
+        box-shadow: 0 .5rem 1rem rgba(0, 0, 0, 0.5)
+}
+
+.container {
+    /* border: 1px solid ; */
+    display: flex;
+    align-items: center; 
 }
 
 .top {
@@ -35,19 +57,41 @@ main {
 }
 
 .hud {
-    height: 200px;
-    width: 200px;
-    border: solid green 2px;
+    /* height: 200px;
+    width: 200px; */
+    /* border: solid green 2px; */
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
+}
+
+.name {
+    font-size: 1.5em;
+    font-weight: 600;
+    
+}
+.wins {
+    font-size: 20px;
+    font-weight: 200;
+}
+.wins::before {
+    content: 'Wins: '
+}
+
+.token {
+    font-size: 90px;
+    padding-right: 5px;
+}
+
+.fighter {
+    font-size: 3em;
 }
 
 .middle {
     height: 50%;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
 }
 
@@ -59,36 +103,176 @@ main {
     
 }
 
+
+.container-column {
+ flex-direction: column;
+ width: 50%;
+ border: none;
+}
+
+.container-column-wide {
+ flex-direction: column;
+ width: 100%;
+ height: 100%;
+ border: none;
+}
+
+.container-row {
+ flex-direction: row;
+ height: 100%;
+ width: 100%;
+}
+
 .fighter-container {
     width: 50%;
     display: flex;
     align-items: flex-end;
-    justify-content: space-evenly;
+    justify-content: space-between;
 }
 
 .button {
     height: 50px;
-    width: 150px;
-    background-color: blue;
+    width: 200px;
+    font-family: 'Comic Neue', cursive;
+    font-weight: 700;
+    background-color: transparent;
     font-size: 20px;
     color: white;
-    border-radius: 10px;
+    border-radius: 50px;
+    text-align: left;
+    white-space: nowrap;
+    margin: 5px;
+    border: none;
+}
+
+
+.button-menu {
+    font-size: 25px;
+    padding-left: 10px;
+}
+
+.button-menu-small {
+    width: 50px;
+    text-align: center;
+
+    font-size: 25px;
+    padding-left: 10px;
+}
+.button--round {
+    margin-left: 0;
+    height: 100px;
+    width: 100px;
+    text-align: center;
+    background-color: transparent; 
+    border-radius: 50px;
+    position: relative;
+}
+
+.container-menu {
+    align-self: flex-start;
+  
+    flex-direction: column;
+    align-items: center;
+    width: 325px;
+    /* border: 1px solid; */
+    /* border-radius: 50px; */
+    margin-top: 10px;
+    margin-right: 20px;
+    padding-bottom: 10px;
+    /* padding:10px; */
+    /* background-color: #720d5d; */
+        box-shadow: 0 .5rem 1rem rgba(0, 0, 0, 0.5), -1px -1px 2px #aaa;
+}
+
+.container-menu-nav {
+    justify-content: space-between;
+    border:none;
+}
+.button--small--round {
+    height: 30px;
+    width: 30px;
+    margin-left: 20px;
+    color: ;
+    text-align: center;
+    background-color: transparent;
+    border-radius: 50px;
+    position: relative;
+}
+
+.button--medium--round {
+    height: 50px;
+    width: 50px;
+    font-size: 30px;
+    white-space: nowrap;
+    margin-left: 20px;
+    text-align: center;
+    background-color: transparent;
+    border-radius: 50px;
     
 }
 
-.button:hover {
-    transform: scale(1.2);
-    cursor: pointer;
+.menu--title {
+    margin-left: 20px;
+    font-size: 27px;
 }
 
-.fighter-button {
+.container--player1 {
+    align-self: flex-end;
+    border: 1px solid;
     height: 100px;
-    width: 100px;
-    color: blue;
-    background-color: blue;
     border-radius: 50px;
-    position: relative;
-    font-size: 72px;
+    border:none;
+    background-color: blue;
+    padding-right: 25px;
+    
+    margin: 20px;
+    /* background-color: #720d5d; */
+        box-shadow: 0 .5rem 1rem rgba(0, 0, 0, 0.5), -1px -1px 2px #aaa;
+}
+
+.prompt {
+    text-align: center;
+    font-size: 60px;
+}
+
+.container--player2 {
+    align-self: flex-start;
+    border: 1px solid;
+    height: 100px;
+    border-radius: 50px;
+    border:none;
+    background-color: #696868;
+    padding-right: 25px;
+    margin: 20px;
+        box-shadow: 0 .5rem 1rem rgba(0, 0, 0, 0.5), -1px -1px 2px #aaa;
+}
+
+.container-menu-title {
+   bottom: 50px;
+}
+.container--menu--options {
+    flex-direction: column;
+    justify-content: center;
+    border: none;
+}
+
+.container--option {
+width: 90%;
+border-radius: 50px;
+padding:10px;
+margin: 10px;
+}
+
+.container--option--avatar {
+    margin-left: 20px;
+}
+
+.container--option--stats {
+    white-space: nowrap;
+}
+
+.option-caption {
+    margin-left: 10 px 
 }
 
 .token-button {
@@ -114,10 +298,50 @@ main {
     visibility: visible;
 }
 
-.button-container {
-
+.container-menu-options {
+    flex-direction: column;
+    justify-content: center;
 }
 
-.hidden {
-    display: none;
+.game-board {
+border: blue solid 10px;
+display: flex;
+flex-direction: column;
+height: 100%;
+width: 50%;
+
 }
+input {
+    padding: 5px;
+}
+.container-board {
+    /* border: 10px solid red; */
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+.container-field{
+    border: 10px solid red;
+    width: 95%;
+}
+
+button:hover {
+    transform: scale(1.2);
+    cursor: pointer;
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.9), -1px -1px 2px #aaa,
+    1px 1px 2px #555;
+}
+
+.frosted {
+  background: linear-gradient(
+    to bottom right,
+    rgba(255, 255, 255, 0.2),
+    rgba(255, 255, 255, 0.05)
+  );
+  
+  
+ 
+} 
