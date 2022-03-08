@@ -1,6 +1,6 @@
 class NavBar {
     constructor() {
-        this.title = 'Rock, Paper, Scissors';
+        this.title = '&#129704; Rock, Paper, Scissors';
         this.gameType = ' &#128074; Classic Game'
         this.menuButton = '';
         this.HTML = '';
@@ -14,7 +14,7 @@ class NavBar {
     }
     show() {
         this.HTML = `
-        <nav class="nav" style="background-color: ${this.theme.dark}">
+        <nav class="nav " style="background-color: ${this.theme.dark}">
         <h1>${this.title}</h1>
         <h1>${this.gameType}</h1>
         ${this.menuButton}
@@ -62,10 +62,10 @@ class Menu {
         this.setOptions(data[menu].options);
         if (menu === 'name') {
             this.HTML = `
-            <div class="container container-column container-menu"  style="background-color: ${this.theme.light}">
+            <div class="container container-column container-menu "  style="background-color: ${this.theme.light}">
             <div class="container container-row container-menu-nav"  style="background-color: ${this.theme.dark}">
                 <label class="title menu--title">${data[menu].title}</label>
-                    <button class="button button--small--round" onClick="game.menu.hide()">X</button>
+                    <button class="button button--small--round frosted" onClick="game.menu.hide()">X</button>
             </div>
                 <div class="container container--menu--options">
                     <input class="button frosted name-box" value="${game.player1.name}" style="text-align:center;"
@@ -79,7 +79,7 @@ class Menu {
             <div class="container container-column container-menu"  style="background-color: ${this.theme.light}">
             <div class="container container-row container-menu-nav"  style="background-color: ${this.theme.dark}">
                 <label class="title menu--title">${data[menu].title}</label>
-                    <button class="button button--small--round" onClick="game.menu.hide()">X</button>
+                    <button class="button button--small--round frosted" onClick="game.menu.hide()">X</button>
             </div>
                 <div class="container container--menu--options">
                     ${this.getOptionsHTML()}
@@ -93,7 +93,7 @@ class Menu {
         game.navBar.showButton()
         game.player1.show();
         game.player2.show();
-        game.prompt = 'Choose your fighter.'
+        game.prompt = `${game.player1.token} &#128173; <br> It's your turn...`
         this.HTML = '';
         render();
     }
@@ -213,23 +213,24 @@ class Game {
         this.navBar.hideButton();
         this.player1.hideFighters();
         game.player1.show();
-        this.prompt = `${this.player2.token}<br>${this.player2.name} is now choosing their fighter.`
+        this.prompt = `${this.player2.token} &#128173;<br>Now, it's ${this.player2.name}'s turn.`
         render();
         var player1Move = this.player1.takeTurn(userMove);
-        this.result.push(`${this.player1.token} ${this.player1.fighters[player1Move]}<br>${this.player1.name} chose ${player1Move}.`)
         var player2Move = this.player2.takeTurn();
-        this.result.push(`${this.player2.token} ${this.player2.fighters[player2Move]}<br>${this.player2.name} chose ${player2Move}.`)
+        this.result.push(`${this.player2.token} &#9898; &#9898; ${this.player1.token}<br>Here we go!`)
+        this.result.push(`${this.player2.token} &#9898; ${this.player1.fighters[player1Move]} ${this.player1.token} <br>You chose, ${player1Move}.`)
+        this.result.push(`${this.player2.token} ${this.player2.fighters[player2Move]} ${this.player1.fighters[player1Move]} ${this.player1.token}<br>${this.player2.name} chose, ${player2Move}.`)
         var winner = this.board.checkWinCondition(player1Move, player2Move);
         switch (winner) {
             case 1:
-                this.result.push(`${this.player1.fighters[player1Move]} > ${this.player2.fighters[player2Move]}<br>${player1Move} beats ${player2Move}.`); 
-                this.result.push(`${this.player1.token}<br>${this.player1.win()}!!!`);
+                this.result.push(`${this.player2.token} &#128165; ${this.player1.fighters[player1Move]} ${this.player1.token}<br>${player1Move} beats ${player2Move}.`); 
+                this.result.push(`&#127881; ${this.player1.token} &#127881;<br>&#10024; ${this.player1.win()}!!! &#10024;`);
             break;
             case 2:
-                this.result.push(`${this.player2.fighters[player2Move]} > ${this.player1.fighters[player1Move]}<br>${player2Move} beats ${player1Move}.`); this.result.push(`${this.player2.token}<br>${this.player2.win()}.`)
+                this.result.push(`${this.player2.token} ${this.player2.fighters[player2Move]} &#128165; ${this.player1.token}<br>${player2Move} beats ${player1Move}.`); this.result.push(`${this.player2.token}<br>${this.player2.win()}.`)
             break;
             default:
-                this.result.push(`${this.player2.fighters[player2Move]} = ${this.player1.fighters[player1Move]}<br>Both players chose ${player1Move}.`) 
+                this.result.push(`${this.player2.fighters[player2Move]} ${this.player1.fighters[player1Move]}<br>You both chose ${player1Move},`) 
                 this.result.push(`${this.player2.token} ${this.player1.token}<br>it's a tie.`)
         }
         setTimeout(displayResults, 3000);

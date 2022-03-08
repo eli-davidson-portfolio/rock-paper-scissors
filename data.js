@@ -10,7 +10,7 @@ var data = {
                 onClick: `game.menu.show('gameType')`
             },
             {
-                name: 'Charactor',
+                name: 'Character',
                 value: '&#129489;',
                 onClick: `game.menu.show('charactor')`
             },
@@ -23,7 +23,7 @@ var data = {
         ],
     },
     charactor: {
-        title: 'Charactor',
+        title: 'Character',
         prompt: "",
         options: [
             {
@@ -185,17 +185,18 @@ var data = {
                 name: 'Red',
                 value: '&#128997;',
                 light: '#d32f2f',
-                dark: '#b71c1c',
+                dark: '#9a0007',
                 onClick: `game.setTheme(0)`
             },
             {
+                //Orange threw some contrast errors, so it's adjusted, rather than removed
                 name: 'Orange',
                 value: '&#128999;',
-                light: '#e64a19',
-                dark: '#bf360c',
+                light: '#BF360C',
+                dark: '#FF3D00',
                 onClick: `game.setTheme(1)`
             },
-            {
+            {   //Yellow does not work with white font, or yellow emojis, so it's eleminated.
                 name: 'Green',
                 value: '&#129001;',
                 light: '#388e3c',
