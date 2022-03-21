@@ -1,22 +1,7 @@
+const game = new Game();
 
+const render = () => document.querySelector('.main').innerHTML = game.show()
 
-function newGame() {
-    game = new Game();
-    game.reset();
-}
+const displayResults = () => game.result.forEach((result, index) => setTimeout(() => document.querySelector('.prompt').innerHTML = result, index * 3000)) 
 
-function render() {
-    document.querySelector('.main').innerHTML = game.show();
-}
-
-function displayResults() {
-    var prompt = document.querySelector('.prompt');
-    for (let i = 0; i < game.result.length; i++) {
-        setTimeout(() => {prompt.innerHTML = game.result[i];}, i * 3000);
-    }
-    setTimeout(game.menu.hide, 15000);
-}
-
-
-var game = new Game();
 game.menu.show('menu');
