@@ -14,7 +14,7 @@ class NavBar {
     }
     show() {
         this.HTML = `
-        <nav class="nav " style="background-color: ${this.theme.dark}">
+        <nav class="nav" style="background-color: ${this.theme.dark}">
         <h1>${this.title}</h1>
         <h1>${this.gameType}</h1>
         ${this.menuButton}
@@ -41,19 +41,18 @@ class Menu {
             dark: '#4e0d3a;',
         }
     }
+
     setOptions(options) {
         this.options = []
-        for (var i = 0; i < options.length; i++) {
-            this.options.push(new MenuOption(options[i]))
-        }
+        options.forEach(option => this.options.push(new MenuOption(option)))
     }
+
     getOptionsHTML() {
         var optionsHTML = '';
-        for (var i = 0; i < this.options.length; i++) {
-            optionsHTML += this.options[i].HTML;
-        }
+        this.options.forEach(option => optionsHTML += option.HTML)
         return optionsHTML;
     }
+
     show(menu) {
         game.prompt = '',
         game.navBar.hideButton();
@@ -101,8 +100,7 @@ class Menu {
 }
 class MenuOption {
     constructor(option) {
-        this.HTML = `
-        <button class="button frosted button-menu" onClick="${option.onClick}">${option.value}  ${option.name}</button>`
+        this.HTML = `<button class="button frosted button-menu" onClick="${option.onClick}">${option.value}  ${option.name}</button>`
     }
 }
 
@@ -233,6 +231,7 @@ class Game {
                 this.result.push(`${this.player2.token} ${this.player1.token}<br>it's a tie.`)
         }
         setTimeout(displayResults, 3000);
+        setTimeout(this.menu.hide, 18000);
     }
 
     show(){

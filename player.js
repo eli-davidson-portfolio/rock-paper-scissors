@@ -1,13 +1,8 @@
 class Hud {
     constructor() {
-        this.token = '';
-        this.name = '';
-        this.wins = 0;
-        this.HTML = '';
-        this.show();
-
+        this.update();
     }
-    update(token, name, wins) {
+    update(token = '', name = '', wins = '') {
         this.token = token;
         this.name = name;
         this.wins = wins;
@@ -23,8 +18,7 @@ class Hud {
                 <lable class="name">${this.name}</label><br>
                 <lable class="wins">${this.wins}</lable>
             </div>
-        </section>
-        `;
+        </section>`;
     }
     hide() {
         this.HTML = '';
@@ -45,8 +39,6 @@ class Player {
         this.skinTone = '';
         this.fighters = {};
         this.wins = 0;
-        this.move = '';
-        this.moveIndex;
         this.HTML = '';
         this.hud = new Hud();
         this.theme = {
@@ -65,10 +57,9 @@ class Player {
             ${this.hud.HTML}
         </section>`
     }
-    hide() {
-        this.HTML = "";
-    }
 
+    hide = () => this.HTML = "";
+    
     setToken() {
         this.token = '';
         if (this.species === 'human') {
@@ -120,37 +111,28 @@ class Player {
     }
 
     setFighters(fighters) {
-        this.fightersHTML = '';
-            for (var i = 0; i < fighters.length; i++) {
-                var key = fighters[i].toLowerCase();
-                var name = data.fighters[key].name;
-                var emoji = data.fighters[key][this.species]
-                if (this.species === 'human') {
-                    emoji += this.skinTone;
-                    this.fightersHTML += `<button class="button button--round frosted fighter-button fighter-${key}" name="${name}" onClick="game.play('${name}')"><label class="fighter">${emoji}</label></button>`
-                }
-                this.fighters[name] = emoji;
+        this.hideFighters();
+        fighters.forEach(fighter => {
+            const key = fighter.toLowerCase();
+            const name = data.fighters[key].name;
+            let emoji = data.fighters[key][this.species]
+            if (this.species === 'human') {
+                emoji += this.skinTone;
+                this.fightersHTML += `<button class="button button--round frosted fighter-button fighter-${key}" name="${name}" onClick="game.play('${name}')"><label class="fighter">${emoji}</label></button>`
             }
+            this.fighters[name] = emoji;
+        })
+
     }
 
-    hideFighters() {
-        this.fightersHTML = '';
-    }
+    hideFighters = () => this.fightersHTML = '';
 
-    getRandomIndex(array) {
-        return Math.floor(Math.random() * array.length);
-    }
+    getRandomIndex = array => Math.floor(Math.random() * array.length);
 
-    getRandomValue(array) {
-        return array[Math.floor(Math.random() * array.length)];
-    }
+    getRandomValue = array => array[Math.floor(Math.random() * array.length)];
 
-    takeTurn(move) {
-        this.move = move || this.getRandomValue(game.board.availableFighters)
-        this.moveIndex = game.board.availableFighters.indexOf(this.move);
-        return this.move;
-    }
-
+    takeTurn = (move = this.getRandomValue(game.board.availableFighters)) => move;
+    
     win() {
         this.wins++;
         this.show();
