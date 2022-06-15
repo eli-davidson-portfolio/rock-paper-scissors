@@ -24,7 +24,7 @@ I made this for you, and I sincerely hope you enjoy it.
  
  
 ## Deploy Link
-The application has been deployed to gitHub pages, and can be accessed [here.](https://elleshadow.github.io/rock-paper-scissors/)
+The application has been deployed to gitHub pages, and can be accessed [here.](https://main.d1y4scyxb6m7gp.amplifyapp.com/)
  
 ## Technologies Used
 * Git
