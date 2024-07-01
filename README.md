@@ -52,10 +52,18 @@ The specifications for the project are available [here](https://frontend.turing.
 ![Game Type Selection](./assets/game-menu.png)
 
 ## Technologies Used
-- HTML
-- CSS
+
+### Languages
 - JavaScript
-- Git
+- HTML5
+- CSS3
+
+### Tools
+- Git (for version control)
+
+### Others
+- Node.js (for package management and scripts)
+
 
 ## Setup and Installation
 To play the game, visit the deployed site [here](https://main.d1y4scyxb6m7gp.amplifyapp.com/).
